@@ -30,8 +30,20 @@ public class UIPeliculas {
                 JOptionPane.QUESTION_MESSAGE
             );
             
-            switch(opcion){
-                case "1":
+            int opcionInt = 0;
+            try{
+                opcionInt = Integer.parseInt(opcion);
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Las opciones tienen que ser numeros enteros",
+                        "ERROR",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
+            
+            switch(opcionInt){
+                case 1:
                     String nombrePelicula = JOptionPane.showInputDialog(
                             null,
                             "INGRESE EL NOMBRE DE LA PELICULA",
@@ -41,10 +53,10 @@ public class UIPeliculas {
                     pelicula = new Pelicula(nombrePelicula);
                     peliculas.insertarPeliculas(pelicula);
                     break;
-                case "2":
+                case 2:
                     peliculas.listarPeliculas();
                     break;
-                case "3":
+                case 3:
                     nombrePelicula = JOptionPane.showInputDialog(
                             null,
                             "INGRESE EL NOMBRE DE LA PELICULA",
@@ -52,7 +64,7 @@ public class UIPeliculas {
                             3);
                     peliculas.buscarPelicula(nombrePelicula);
                     break;
-                case "4":
+                case 4:
                     break cerrar;
                 default:
                     JOptionPane.showMessageDialog(null, 
